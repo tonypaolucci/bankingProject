@@ -14,16 +14,16 @@ import com.bankOps.Login;
 import com.bankOps.User;
 
 /**
- * Servlet implementation class loginServlet
+ * Servlet implementation class NewUserServlet
  */
-@WebServlet("/loginServlet")
-public class loginServlet extends HttpServlet {
+@WebServlet("/NewUserServlet")
+public class NewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginServlet() {
+    public NewUserServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,29 +34,32 @@ public class loginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		Login log = new Login();
+		//Login log = new Login();
 		User user = new User();
+		//User u = new User();
 		// TODO login only needs to check the typed paarameter with data from elsewhere.
-//		log.setfName(request.getParameter("firstName"));
-//		log.setlName(request.getParameter("lastName"));
-		log.setPassW(request.getParameter("password"));
-		log.setuName(request.getParameter("userName"));
-		user = log.checkUsers(log.getuName(), log.getPassW());
-		if(log.isLoggedIn())
-		{
+		
+//		log.setuName(request.getParameter("userName"));
+//		log.setPassW(request.getParameter("password"));
+//		user.setFirstName(request.getParameter("firstName"));
+//		user.setLastName(request.getParameter("lastName"));
+//		user.setPassword(request.getParameter("password"));
+//		user.setUsername(request.getParameter("userName"));
+		//user.set
+		//user = log.checkUsers(log.getuName(), log.getPassW());
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setAddress(request.getParameter("address"));
+		user.setPhone(request.getParameter("phone"));
+		user.setEmail(request.getParameter("email"));
+		user.setPassword(request.getParameter("password"));
+		user.setUsername(request.getParameter("userName"));
+		user.setCustNum(user.randomNums());
+		
 			HttpSession session = request.getSession(true);
 			session.setAttribute("user", user);
-			RequestDispatcher rs = request.getRequestDispatcher("index2.jsp");
+			RequestDispatcher rs = request.getRequestDispatcher("acctOpen.jsp");
 			rs.forward(request, response);
-		}
-		else
-		{
-			//ned somethoong to display user entered wrong info.
-			HttpSession session = request.getSession(true);
-			session.setAttribute("user", user);
-			RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
-			rs.forward(request, response);
-		}
 		
 	}
 

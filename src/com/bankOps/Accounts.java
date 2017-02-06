@@ -10,8 +10,14 @@ public class Accounts {
 		acctNum = "";
 		custNum = "";
 		balance = 0;
+		acctType = "";
 		acctOpenDate = new Date();
 		isOpen = false;
+	}
+	
+	public String toString()
+	{
+		return this.acctNum + "," +this.custNum + "," + this.balance + "," + this.acctOpenDate + "," + this.acctType;
 	}
 	
 	public String getAcctNum()
@@ -42,10 +48,22 @@ public class Accounts {
 	
 	
 	
+	public String getAcctType() {
+		return acctType;
+	}
+
+	public void setAcctType(String acctType) {
+		this.acctType = acctType;
+	}
+
+
+
+
 	private String acctNum;
 	private String custNum;
 	private double balance;
 	private Date acctOpenDate;
+	private String acctType;
 	private boolean isOpen;
 	
 }

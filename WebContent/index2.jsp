@@ -41,7 +41,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <!--<li class="w3-hide-small"><a href="#" class="w3-hover-white">Values</a></li>-->
     <li class="w3-hide-small"><a href="#" class="w3-hover-white">News</a></li>
     <li class="w3-hide-small"><a href="#" class="w3-hover-white">Contact</a></li>
-<%--     <li class="w3-hide-small"> Welcome <%  out.print(user.getFirstName());  %></li> --%>
+    <li class="w3-hide-small"> Welcome <%  out.print(user.getFirstName() + " " + user.getLastName());  %></li>
     <!-- <li class="w3-hide-medium w3-hide-small"><a href="#" class="w3-hover-white">Clients</a></li>
     <li class="w3-hide-medium w3-hide-small"><a href="#" class="w3-hover-white">Partners</a></li> -->
   </ul>
@@ -53,12 +53,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <i class="fa fa-remove"></i>
   </a>
   <h4><b>Menu</b></h4>
-  <a href=".\login.jsp" class="w3-hover-black">Log In!</a>
-  <a href=".\newUser.jsp" class="w3-hover-black">New Customer?</a>
-<!--   <a href=".\acctClose.html" class="w3-hover-black">Close an account</a> -->
-<!--   <a href=".\acctTransfers.html" class="w3-hover-black">Funds Transfer</a> -->
-<!--   <a href=".\acctBalance.html" class="w3-hover-black">Check Balance</a> -->
-<!--   <a href=".\orderChecks.html" class="w3-hover-black">Order Checks</a> -->
+<!--   <a href=".\login.jsp" class="w3-hover-black">Log In!</a> -->
+  <a href=".\acctOpen.jsp" class="w3-hover-black">Open new account</a>
+  <a href=".\acctClose.jsp" class="w3-hover-black">Close an account</a>
+  <a href=".\acctTransfers.jsp" class="w3-hover-black">Funds Transfer</a>
+  <a href=".\acctBalance.jsp" class="w3-hover-black">Check Balance</a>
+  <a href=".\orderChecks.jsp" class="w3-hover-black">Order Checks</a>
+  <a href=".\index.jsp" class="w3-hover-black">Logout</a>
 </nav>
 
 <!-- Overlay effect when opening sidenav on small screens -->
@@ -72,51 +73,50 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       <h1 class="w3-text-teal">Welcome to<br>What's in Your Wallet Bank and Trust</h1>
 	  <h2 class="w3-text-teal">We're here so you don't pillage your savings!</h2>
       <h3 class="uLine">Please select your options below.</h3>
-   <!--  </div>
-    <div class="w3-third w3-container">
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
-    </div> -->
+<!--    <!--  </div> -->
+<!--     <div class="w3-third w3-container"> -->
+<!--       <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p> -->
+<!--       <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+<!--     </div> --> 
 
   
    <div class="row">
             <div class="col-xs-6 col-lg-4">
-              <h2>New Customer</h2>
-              <p>New here? </p>
-              <p>Register with us and lets go pillaging!</p>
+              <h2>Open account</h2>
+              <p>Pillage your mattress based savings and bank with us! </p>
 <!-- 			   <button type="submit" class="btn btn-default">Click here</button>
- -->          <p><a class="btn btn-default" href=".\newUser.jsp" role="button">Click here &raquo;</a></p>
+ -->          <p><a class="btn btn-default" href=".\acctOpen.jsp" role="button">Click here &raquo;</a></p>
             </div><!--/.col-xs-6.col-lg-4-->
             <div class="col-xs-6 col-lg-4">
-              <h2>Log In!</h2>
-              <p>Been here before?  </p>
-              <p>Click below to access your account.<p>
+              <h2>Close account</h2>
+              <p>Really pillage your account. </p><br>
 			   <!-- <button type="submit" class="btn btn-default">Click here</button> -->
-              <p><a class="btn btn-default" href=".\login.jsp" role="button">Click here &raquo;</a></p>
+              <p><a class="btn btn-default" href=".\acctClose.jsp" role="button">Click here &raquo;</a></p>
             </div><!--/.col-xs-6.col-lg-4-->
-<!--             <div class="col-xs-6 col-lg-4"> -->
-<!--               <h2>Transfer funds</h2> -->
-<!--               <p>Move your money to another account here or at another bank. </p> -->
-<!-- 			   <button type="submit" class="btn btn-default">Click here</button> -->
-<!--               <p><a class="btn btn-default" href=".\acctTransfers.html" role="button">Click here &raquo;</a></p> -->
-<!--             </div>/.col-xs-6.col-lg-4 -->
-<!--             <div class="col-xs-6 col-lg-4"> -->
-<!--               <h2>Check balance</h2> -->
-<!--               <p>See the spoils of your labor. </p><br> -->
-<!-- 			   <button type="submit" class="btn btn-default">Click here</button> -->
-<!--               <p><a class="btn btn-default" href=".\acctBalance.html" role="button">Click here &raquo;</a></p> -->
-<!--             </div>/.col-xs-6.col-lg-4 -->
-<!--             <div class="col-xs-6 col-lg-4"> -->
-<!--               <h2>Order Checks</h2> -->
-<!--               <p>Don't go bouncing around with these. </p> -->
-<!-- 			   <button type="submit" class="btn btn-default">Click here</button> -->
-<!--               <p><a class="btn btn-default" href=".\orderChecks.html" role="button">Click here &raquo;</a></p> -->
-<!--             </div>/.col-xs-6.col-lg-4 -->
-<!--             <div class="col-xs-6 col-lg-4"> -->
-<!--               <h2>Heading</h2>
-<!--               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p> -->
-<!--               <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> --> 
-<!--             </div>/.col-xs-6.col-lg-4 -->
+            <div class="col-xs-6 col-lg-4">
+              <h2>Transfer funds</h2>
+              <p>Move your money to another account here or at another bank. </p>
+			   <!-- <button type="submit" class="btn btn-default">Click here</button> -->
+              <p><a class="btn btn-default" href=".\acctTransfers.jsp" role="button">Click here &raquo;</a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+            <div class="col-xs-6 col-lg-4">
+              <h2>Check balance</h2>
+              <p>See the spoils of your labor. </p><br>
+			   <!-- <button type="submit" class="btn btn-default">Click here</button> -->
+              <p><a class="btn btn-default" href=".\acctBalance.jsp" role="button">Click here &raquo;</a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+            <div class="col-xs-6 col-lg-4">
+              <h2>Order Checks</h2>
+              <p>Don't go bouncing around with these. </p>
+			   <!-- <button type="submit" class="btn btn-default">Click here</button> -->
+              <p><a class="btn btn-default" href=".\orderChecks.jsp" role="button">Click here &raquo;</a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+            <div class="col-xs-6 col-lg-4">
+             <h2>Log Out</h2>
+              <p>If you're done click here. </p>
+<%--               <% User user = (User) session.getAttribute("user"); %> --%>
+              <p><a class="btn btn-default" href=".\index.jsp" role="button">Logout &raquo;</a></p> 
+            </div><!--/.col-xs-6.col-lg-4-->
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
 </div>

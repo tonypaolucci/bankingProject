@@ -1,16 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.bankOps.Login" %>
+     <%@ page import="com.bankOps.User" %>
+    <% User user = (User) session.getAttribute("user"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>What's in Your Wallet</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href=".\css\styles.css">
-<link rel="stylesheet" href=".\css\bootstrap.min.css">
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 .w3-sidenav a,.w3-sidenav h4 {padding: 12px;}
@@ -19,11 +24,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     padding-bottom: 12px;
 }
 </style>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>What's in Your Wallet</title>
-</head>
 <body>
+
 <!-- Navbar -->
 <div class="w3-top">
   <ul class="w3-navbar w3-theme w3-top w3-left-align w3-large">
@@ -49,11 +51,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <i class="fa fa-remove"></i>
   </a>
   <h4><b>Menu</b></h4>
-  <a href=".\index.jsp" class="w3-hover-black">Go Back</a>
-<!--   <a href=".\acctClose.html" class="w3-hover-black">Close an account</a> -->
-<!--   <a href=".\acctTransfers.html" class="w3-hover-black">Funds Transfer</a> -->
-<!--   <a href=".\acctBalance.html" class="w3-hover-black">Check Balance</a> -->
-<!--   <a href=".\orderChecks.html" class="w3-hover-black">Order Checks</a> -->
+  <a href=".\acctOpen.html" class="w3-hover-black">Open new account</a>
+  <a href=".\acctClose.html" class="w3-hover-black">Close an account</a>
+  <a href=".\acctTransfers.html" class="w3-hover-black">Funds Transfer</a>
+  <a href=".\acctBalance.html" class="w3-hover-black">Check Balance</a>
+  <a href=".\orderChecks.html" class="w3-hover-black">Order Checks</a>
 </nav>
 
 <!-- Overlay effect when opening sidenav on small screens -->
@@ -64,30 +66,40 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">What's in Your Wallet Bank and Trust</h1>  
+      <h1 class="w3-text-teal">Welcome to<br>What's in Your Wallet Bank and Trust</h1> 
+      <h2 class="w3-text-teal">You're new here, tell us about yourself. We'll Take your money next.</h2> 
    <div class="row">
-   <form class="formContainer" action= "loginServlet" method= "post">
-  <div class="form-group">
-    <label for="userName">User Name<span class="redClass">*</span></label>
-    <input type="text" class="form-control" name="userName" id="userName" placeholder="User Name">
+   <form class="formContainer"  action= "NewUserServlet" method= "post">
+    <div class="form-group">
+    <label for="userName">User Name</label>
+    <input type="text" class="form-control" id="userName" name=userName placeholder="User Name">
   </div>
-<!--    <div class="form-group"> -->
-<!--     <label for="exampleInputEmail1">Last Name<span class="redClass">*</span></label> -->
-<!--     <input type="last" class="form-control" id="lastName" placeholder="Last Name"> -->
-<!--   </div> -->
-<!--    <div class="form-group"> -->
-<!--     <label for="exampleInputEmail1">Country<span class="redClass">*</span></label> -->
-<!--     <input type="country" class="form-control" id="country" placeholder="Country"> -->
-<!--   </div> -->
-  
-<!--   <div class="form-group"> -->
-<!--     <label for="exampleInputEmail1">Email address</label> -->
-<!--     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"> -->
-<!--   </div> -->
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+    <input type="password" class="form-control" id="password" name=password placeholder="Password">
   </div>
+  <div class="form-group">
+    <label for="firstName">First Name<span class="redClass">*</span></label>
+    <input type="text" class="form-control" id="firstName" name=firstName placeholder="First Name">
+  </div>
+   <div class="form-group">
+    <label for="lastName">Last Name<span class="redClass">*</span></label>
+    <input type="text" class="form-control" id="lastName" name=lastName placeholder="Last Name">
+  </div>
+   <div class="form-group">
+    <label for="address">Address<span class="redClass">*</span></label>
+    <input type="text" class="form-control" id="address" name=address placeholder="Address">
+  </div>
+   <div class="form-group">
+    <label for="Phone">Phone Number<span class="redClass">*</span></label>
+    <input type="text" class="form-control" id="phone" name=phone placeholder="Phone Number">
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" class="form-control" id="email" name=email placeholder="Email">
+  </div>
+ 
 <!--   <div class="form-group"> -->
 <!--     <label for="exampleInputFile">File input</label> -->
 <!--     <input type="file" id="exampleInputFile"> -->
@@ -100,8 +112,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 <!--   </div> -->
   <button type="submit" class="btn btn-default">Submit</button> 
 </form>
- </div>
- </div><!--/.col-xs-12.col-sm-9-->
+		   </div>
+        </div><!--/.col-xs-12.col-sm-9-->
 </div>
 
   <footer id="myFooter">
